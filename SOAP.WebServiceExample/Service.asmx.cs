@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Services;
 
 namespace SOAP.WebServiceExample
@@ -34,6 +36,12 @@ namespace SOAP.WebServiceExample
             return GetMinInternal(d1, d2, d3);
         }
 
+        [WebMethod]
+        public List<string> SplitBySpace(string s)
+        {
+            return s.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
+                .ToList();
+        }
 
     }
 }
